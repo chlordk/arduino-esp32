@@ -82,9 +82,10 @@ void setup() {
   else {
     Serial.println("Connected to server!");
     // Make a HTTP request:
-    client.println("GET https://www.howsmyssl.com/a/check HTTP/1.0");
+    client.println("GET /a/check HTTP/1.1");
     client.println("Host: www.howsmyssl.com");
-    client.println("Connection: close");
+    client.println("User-Agent: arduino-esp32");
+    client.println("Accept: */*");
     client.println();
 
     while (client.connected()) {
